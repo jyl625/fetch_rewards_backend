@@ -11,6 +11,10 @@ class Point < ApplicationRecord
     self.remaining_points ||= self.points
   end
 
+  def self.balance
+    self.group(:payer).sum(:remaining_points)
+  end
+
   def self.spend(amount)
     points_spent = {}
     remaining_amount = amount
