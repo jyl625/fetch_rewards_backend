@@ -67,6 +67,7 @@ end
 
 if ENV['grading'] == 'true'
   %w(
+    Api::PointsController
     Point
   ).each do |constant|
     begin
