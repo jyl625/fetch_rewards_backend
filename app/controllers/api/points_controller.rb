@@ -17,7 +17,6 @@ class Api::PointsController < ApplicationController
   end
 
   def edit
-    p points_params
     @summary = Point.spend(points_params[:points].to_i)
 
     respond_to do |format|
