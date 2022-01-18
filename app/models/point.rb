@@ -41,19 +41,17 @@ class Point < ApplicationRecord
 
   end
 
+  private
+
   def self.execute_deduction_and_generate_summary(points_spent)
     summary_hash = Hash.new(0)
     points_spent.each do |points_obj, amount|
-      points_obj.execute_point_deduction(amount)
+      points_obj.update(remaining_points: points_obj.remaining_points - amount)
       summary_hash[points_obj.payer] -= amount
     end
 
     summary_hash.map do |payer, amount|
       {payer: payer, points: amount}
     end
-  end
-
-  def execute_point_deduction(amount)
-    self.update(remaining_points: self.remaining_points - amount)
   end
 end
