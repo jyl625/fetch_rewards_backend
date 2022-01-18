@@ -37,6 +37,11 @@ class Point < ApplicationRecord
       i += 1
     end
 
+    self.execute_deduction_and_generate_summary(points_spent)
+
+  end
+
+  def self.execute_deduction_and_generate_summary(points_spent)
     summary_hash = Hash.new(0)
     points_spent.each do |points_obj, amount|
       points_obj.execute_point_deduction(amount)
