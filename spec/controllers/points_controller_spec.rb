@@ -20,6 +20,7 @@ RSpec.describe Api::PointsController, type: :controller do
       post :create, params:{payer: "DANNON", points: 1000, timestamp: "2020-11-02T14:00:00Z"}, format: :json
       response_body = Point.last.serializable_hash.as_json
       expect(JSON.parse(response.body)).to eq(response_body)
+      expect(response).to have_http_status(200)
     end
   end
 
