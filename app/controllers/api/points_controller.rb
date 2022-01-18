@@ -8,6 +8,14 @@ class Api::PointsController < ApplicationController
      end
   end
 
+  def create
+    @points = Point.create(points_params)
+
+    respond_to do |format|
+      format.json {render json: @points, status: 200}
+    end    
+  end
+
   def edit
     p points_params
     @summary = Point.spend(points_params[:points].to_i)
@@ -17,7 +25,13 @@ class Api::PointsController < ApplicationController
     end
   end
 
+  private
+
   def points_params
-    params.permit(:points)
+    params.permit(
+      :payer,
+      :points,
+      :timestamp
+    )
   end
 end
