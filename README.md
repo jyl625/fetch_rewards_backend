@@ -6,10 +6,23 @@
 * Database: **PostgreSQL**
 * Test suite: **RSpec**
 
+<br>
+
+***
+
+<br>
+
+
 ## Requirements
 * [Ruby v 2.5.x Installation](https://www.ruby-lang.org/en/documentation/installation/)
 * [PostgreSQL](https://www.postgresql.org/download/)
 * [Postman API Platform](https://www.postman.com) or any other platform for sending/receiving HTTP requests
+
+<br>
+
+***
+
+<br>
 
 ## Project Setup
 1. Download and unzip project from repo
@@ -21,11 +34,36 @@
 6. Run `rails s` to start Rails server 
     - Should be listening on `tcp://localhost:3000` as default
 
+<br>
+
+***
+
+<br>
+
+## Relevant code file locations
+- `Routes` are located in [./config/routes.rb](./config/routes.rb)
+- `Points controller` is located in [./app/controllers/api/points_controller.rb](./app/controllers/api/points_controller.rb)
+- `Point model` is located in [./app/models/point.rb](./app/models/point.rb)
+- `Database schema` is located in [./db/schema.rb](./db/schema.rb)
+- `Migration file` is located in [./db/migrate/20220118045953_create_points.rb](./db/migrate/20220118045953_create_points.rb)
+
+<br>
+
+***
+
+<br>
+
 ## How to run the RSpec test suite
 0. Run `bundle install` (if not already completed)
 1. Run `bundle exec rspec spec --format documentation` to run all the specs
     - To run specs just for the model, run `bundle exec rspec spec/models/point_spec.rb --format documentation`
     - To run specs just for the controller, run `bundle exec rspec spec/controllers/points_controller_spec.rb --format documentation`
+
+<br>
+
+***
+
+<br>
 
 ## How to test HTTP requests and responses using Postman
 ### To post transactions
